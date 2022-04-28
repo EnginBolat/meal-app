@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^2.3.2
+  flutter_svg: ^1.0.3
   flutter_native_splash: ^2.1.6
   http: ^0.13.4
 
@@ -63,7 +63,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/splashScreenImage.png
-    - assets/images/Untitled2.png
+    - assets/images/randomFood1.jpg
+
 
   #   - images/a_dot_ham.jpeg
 

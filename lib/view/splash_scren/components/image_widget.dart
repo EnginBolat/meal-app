@@ -14,6 +14,9 @@ class _ImageWidgetState extends State<ImageWidget> {
   @override
   Widget build(BuildContext context) {
     return Image(
+      fit: BoxFit.fill,
+      width: double.infinity,
+      height: MediaQuery.of(context).size.height/2,
       image: AssetImage(images.mainPhoto),
     );
   }

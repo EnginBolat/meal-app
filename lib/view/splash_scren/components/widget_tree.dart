@@ -22,14 +22,14 @@ class _WidgetTreeState extends State<WidgetTree> {
     return Column(
       children: [
         const ImageWidget(),
-        SizedBox(height: deviceHeight/20),
+        SizedBox(height: deviceHeight/50),
         Column(
           children: [
-            TitleText(),
-            SizedBox(height: deviceHeight/30),
-            DescText(),
-            SizedBox(height: deviceHeight/8),
-            LetsCookButton(),
+            const TitleText(),
+            SizedBox(height: deviceHeight/40),
+            const DescText(),
+            SizedBox(height: deviceHeight/10),
+            const LetsCookButton(),
           ],
         )
       ],

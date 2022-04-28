@@ -22,7 +22,7 @@ class _LetsCookButtonState extends State<LetsCookButton> {
         child: ElevatedButton.icon(
           onPressed: () {
             Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
+              builder: (context) => HomeScreen(),
             ));
           },
           label: Text(

@@ -9,13 +9,20 @@ ThemeData customThemeData = ThemeData(
   appBarTheme:
       const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle.light),
   textTheme: const TextTheme(
-      headline4: TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.w600,
-      ),
-      headline5: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.w600,
-        fontFamily: "Intern",
-      )),
+    headline4: TextStyle(
+      color: Colors.black,
+      fontWeight: FontWeight.w600,
+    ),
+    headline5: TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.w600,
+      fontFamily: "Intern",
+    ),
+    subtitle2: TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+      fontFamily: "Intern",
+    )
+  ),
 );

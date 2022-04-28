@@ -3,6 +3,7 @@
 Meal App I made with Flutter.
 
 [Design](https://www.figma.com/community/file/1101584409566959317)
+[API](https://themealdb.com/api.php)
 
 ## About App
 

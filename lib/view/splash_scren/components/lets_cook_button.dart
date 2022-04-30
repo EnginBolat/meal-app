@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/constants/const_texts.dart';
+
 import 'package:meal_app/view/home_screen/home_screen.dart';
 
 class LetsCookButton extends StatefulWidget {
@@ -20,8 +21,8 @@ class _LetsCookButtonState extends State<LetsCookButton> {
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: ElevatedButton.icon(
-          onPressed: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
+          onPressed: () async {
+            await Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => HomeScreen(),
             ));
           },

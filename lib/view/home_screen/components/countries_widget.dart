@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/models/dummy_countries.dart';
 
 class CountriesWidget extends StatelessWidget {
   const CountriesWidget({Key? key}) : super(key: key);
@@ -21,7 +20,6 @@ class CountriesWidget extends StatelessWidget {
         SizedBox(
           height: 100,
           child: ListView.builder(
-            itemCount: countries.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Padding(
@@ -29,10 +27,10 @@ class CountriesWidget extends StatelessWidget {
                 child: SizedBox(
                   height: 100,
                   width: 100,
-                  child: CircleAvatar(
-                    backgroundImage:
-                        AssetImage(countries[index].countryImageLink),
-                  ),
+                  // child: CircleAvatar(
+                  //   backgroundImage:
+                  //       AssetImage(countries[index].countryImageLink),
+                  // ),
                 ),
               );
             },

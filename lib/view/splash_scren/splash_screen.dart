@@ -16,7 +16,9 @@ class SplashScreen extends StatelessWidget {
     return const Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
-        child: SingleChildScrollView(child: WidgetTree()),
+        child: SingleChildScrollView(
+          child: WidgetTree(),
+        ),
       ),
     );
   }

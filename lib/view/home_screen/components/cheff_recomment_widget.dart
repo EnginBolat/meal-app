@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/models/dummy_foods.dart';
+import 'package:meal_app/models/meal_model.dart';
+import 'package:meal_app/services/json_services.dart';
 
 class CheffRecommentWidget extends StatelessWidget {
-  const CheffRecommentWidget({Key? key}) : super(key: key);
+  CheffRecommentWidget({Key? key}) : super(key: key);
+
+  JsonServices services = JsonServices();
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return FutureBuilder<List<MealDetail>>(
+      future: services.randomMeal(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          var randomMeals = snapshot.data;
+          return ListView.builder(
+            shrinkWrap: true,
+            itemCount: randomMeals!.length,
+            itemBuilder: (context, index) {
+              var randomMeal = randomMeals[index];
+              return Column(
       children: [
         Text(
           "Chef's Recommendation",
@@ -24,14 +37,24 @@ class CheffRecommentWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(25),
             child: Image(
               fit: BoxFit.fill,
-              image: AssetImage(
-                foods[1].foodImageLink,
+              image: NetworkImage(
+                randomMeal.strMealThumb,
               ),
             ),
           ),
         ),
         const SizedBox(height: 20),
+        Text(randomMeal.strMeal,style: Theme.of(context).textTheme.subtitle1,),
+        const SizedBox(height: 20),
       ],
+    );
+
+            },
+          );
+        } else {
+          return const Center();
+        }
+      },
     );
   }
 }

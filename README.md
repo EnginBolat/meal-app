@@ -11,12 +11,14 @@ Meal App I made with Flutter.
 Things To Do
 
 ```bash
-  ✅ splash Screen
-  ✅ intro Screen
-  ✅ home Screen
-  ❌ countries Food Screen
-  ❌ details Screen
-  ❌ API Integration
+  ✅ Splash Screen
+  ✅ Intro Screen
+  ✅ Home Screen
+  ✅ Countries Meal Screen
+  ✅ Details Screen
+  ✅ API Integration
+  ✅ Performance Upgrades
+  ❌ Search Bar By Meals Name
 ```
 
 Dependencies

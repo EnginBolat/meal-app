@@ -18,6 +18,7 @@ Things To Do
   ✅ Details Screen
   ✅ API Integration
   ✅ Performance Upgrades
+  ❌ Ingredient And Measure Area
   ❌ Search Bar By Meals Name
 ```
 

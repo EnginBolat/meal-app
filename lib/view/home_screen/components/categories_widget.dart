@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/constants/const_texts.dart';
 import 'package:meal_app/constants/const_theme_data.dart';
 import 'package:meal_app/models/categories_model.dart';
 import 'package:meal_app/services/json_services.dart';
 import 'package:meal_app/view/meals_sorting_category/meals_sorting_page.dart';
 
+// ignore: must_be_immutable
 class CategoriesWidget extends StatelessWidget {
   CategoriesWidget({Key? key}) : super(key: key);
 
@@ -12,6 +14,9 @@ class CategoriesWidget extends StatelessWidget {
   Future initialization(BuildContext? context) async {
     await Future.delayed(const Duration(seconds: 3));
   }
+
+  HomePageTexts texts = HomePageTexts();
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +32,7 @@ class CategoriesWidget extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Categories",
+                  texts.categories,
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),

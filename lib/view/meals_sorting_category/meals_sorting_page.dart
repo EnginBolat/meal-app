@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/models/meals_orderby_categories.dart';
 import 'package:meal_app/services/json_services.dart';
+import 'package:meal_app/view/meal_details/meal_details_page.dart';
+import 'package:meal_app/view/meals_sorting_category/components/list_of_meals.dart';
+
 
 // ignore: must_be_immutable
 class MealsSortingPage extends StatefulWidget {
@@ -25,46 +28,26 @@ class _MealsSortingPageState extends State<MealsSortingPage> {
         future: services.listAllMealsOrderByCategory(widget.categoryName),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            var kisiListesi = snapshot.data;
+            var mealList = snapshot.data;
             return ListView.builder(
-              itemCount: kisiListesi!.length,
+              itemCount: mealList!.length,
               itemBuilder: (context, index) {
-                var kisi = kisiListesi[index];
-                return Card(
-                  child: SizedBox(
-                    height: 90,
-                    child: Row(
-                      children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right:20),
-                              child: SizedBox(
-                                height: 80,
-                                width: 80,
-                                child: CircleAvatar(
-                                  backgroundImage:
-                                      NetworkImage(kisi.strMealThumb),
-                                ),
-                              ),
-                            ),
-                            // SizedBox(width: MediaQuery.of(context).size.width/5),
-                            Center(
-                              child: Text(
-                                kisi.strMeal.length > 25
-                                    ? kisi.strMeal.substring(0, 25) +
-                                        "..."
-                                    : kisi.strMeal,
-                                style:
-                                    Theme.of(context).textTheme.headline6,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                );
+                var meal = mealList[index];
+                return GestureDetector(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => MealDetailsPage(
+                                mealId: int.parse(meal.idMeal),
+                              )),
+                        ),
+                      );
+                    },
+                    child: ListOfMeals(
+                      strMeal: meal.strMeal,
+                      strMealThumb: meal.strMealThumb,
+                    ));
               },
             );
           } else {

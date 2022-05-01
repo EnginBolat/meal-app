@@ -31,6 +31,7 @@ dependencies:
     sdk: flutter
   flutter_svg: ^1.0.3
   http: ^0.13.4
+  youtube_player_flutter: ^8.0.0
 
 flutter_native_splash:
   background_image: assets/images/SplashScreen.png
@@ -69,6 +70,7 @@ flutter:
   assets:
     - assets/images/splashScreenImage.png
     - assets/images/randomFood1.jpg
+    - assets/countryFlags/
 
 
   #   - images/a_dot_ham.jpeg

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meal_app/constants/const_colors.dart';
 import 'package:meal_app/view/home_screen/components/categories_widget.dart';
 import 'package:meal_app/view/home_screen/components/cheff_recomment_widget.dart';
+import 'package:meal_app/view/home_screen/components/countries_widget.dart';
 import 'package:meal_app/view/home_screen/components/foods_widget.dart';
 
 // ignore: must_be_immutable
@@ -25,9 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               CategoriesWidget(),
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
               FoodWidget(),
-              // const CountriesWidget(),
+              CountriesWidget(),
               const SizedBox(height: 50),
               CheffRecommentWidget(),
             ],

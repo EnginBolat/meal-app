@@ -8,6 +8,7 @@ ThemeData customThemeData = ThemeData(
   colorScheme: ColorScheme.fromSwatch().copyWith(primary: appColors.appColor),
   appBarTheme:
       const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle.light),
+  fontFamily: "Intern",
   textTheme: const TextTheme(
     headline4: TextStyle(
       color: Colors.black,
@@ -16,13 +17,11 @@ ThemeData customThemeData = ThemeData(
     headline5: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.w600,
-      fontFamily: "Intern",
     ),
     subtitle2: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.w600,
       fontSize: 16,
-      fontFamily: "Intern",
-    )
+    ),
   ),
 );

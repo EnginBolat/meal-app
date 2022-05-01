@@ -23,8 +23,8 @@ class _LetsCookButtonState extends State<LetsCookButton> {
         child: ElevatedButton.icon(
           onPressed: () async {
             await Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => HomeScreen(),
-            ));
+                builder: (context) => HomeScreen(),
+              ));
           },
           label: Text(
             texts.buttonText,

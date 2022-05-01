@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_app/constants/const_texts.dart';
 import 'package:meal_app/constants/const_theme_data.dart';
@@ -17,6 +18,20 @@ class CategoriesWidget extends StatelessWidget {
 
   HomePageTexts texts = HomePageTexts();
 
+  Widget buildImage(String url) => ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: SizedBox(
+          height: 100,
+          width: 100,
+          child: CachedNetworkImage(
+            imageUrl: url,
+            height: 50,
+            width: 80,
+            placeholder: (context, url) =>
+                Container(color: appColors.imageBGColor),
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -47,29 +62,30 @@ class CategoriesWidget extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: GestureDetector(
-                        onTap: () async {
-                          initialization(context);
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: ((context) => MealsSortingPage(
-                                  categoryName: category.strCategory)),
-                            ),
-                          );
-                        },
-                        child: SizedBox(
-                          height: 100,
-                          width: 100,
-                          child: CircleAvatar(
-                            backgroundColor: appColors.imageBGColor,
-                            child: Image.network(
-                              category.strCategoryThumb,
-                              height: 50,
-                              width: 80,
-                            ),
+                          onTap: () async {
+                            initialization(context);
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => MealsSortingPage(
+                                    categoryName: category.strCategory)),
+                              ),
+                            );
+                          },
+                          child: buildImage(category.strCategoryThumb)
+                          // SizedBox(
+                          //   height: 100,
+                          //   width: 100,
+                          //   child: CircleAvatar(
+                          //     backgroundColor: appColors.imageBGColor,
+                          //     child: Image.network(
+                          //       category.strCategoryThumb,
+                          //       height: 50,
+                          //       width: 80,
+                          //     ),
+                          //   ),
+                          // ),
                           ),
-                        ),
-                      ),
                     );
                   },
                 ),

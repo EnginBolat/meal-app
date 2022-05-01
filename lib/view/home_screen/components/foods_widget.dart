@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:meal_app/constants/const_colors.dart';
 import 'package:meal_app/models/meal_model.dart';
 import 'package:meal_app/services/json_services.dart';
@@ -10,6 +12,31 @@ class FoodWidget extends StatelessWidget {
 
   AppColors appColors = AppColors();
   JsonServices services = JsonServices();
+
+  Widget buildImage(String url) => ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: SizedBox(
+          height: 250,
+          width: 250,
+          child: CachedNetworkImage(
+            key: UniqueKey(),
+            imageUrl: url,
+            height: 50,
+            width: 80,
+            fit: BoxFit.fill,
+            placeholder: (context, url) =>
+                Container(color: appColors.appColor),
+          ),
+        ),
+      );
+
+
+    static final customCacheManager = CacheManager(
+      Config(
+        'customCacheKey',
+        stalePeriod: const Duration(days: 5)
+      )
+    );
 
   @override
   Widget build(BuildContext context) {
@@ -51,18 +78,19 @@ class FoodWidget extends StatelessWidget {
                               width: 250,
                               child: Column(
                                 children: [
-                                  SizedBox(
-                                    height: 250,
-                                    width: 250,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(25),
-                                      child: Image(
-                                        fit: BoxFit.fill,
-                                        image: NetworkImage(
-                                            randomMeal.strMealThumb),
-                                      ),
-                                    ),
-                                  ),
+                                  buildImage(randomMeal.strMealThumb),
+                                  // SizedBox(
+                                  //   height: 250,
+                                  //   width: 250,
+                                  //   child: ClipRRect(
+                                  //     borderRadius: BorderRadius.circular(25),
+                                  //     child: Image(
+                                  //       fit: BoxFit.fill,
+                                  //       image: NetworkImage(
+                                  //           randomMeal.strMealThumb),
+                                  //     ),
+                                  //   ),
+                                  // ),
                                   const SizedBox(height: 20),
                                   Text(
                                     randomMeal.strMeal,
@@ -93,18 +121,20 @@ class FoodWidget extends StatelessWidget {
                               width: 250,
                               child: Column(
                                 children: [
-                                  SizedBox(
-                                    height: 250,
-                                    width: 250,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(25),
-                                      child: Image(
-                                        fit: BoxFit.fill,
-                                        image: NetworkImage(
-                                            randomMeal.strMealThumb),
-                                      ),
-                                    ),
-                                  ),
+                                  buildImage(randomMeal.strMealThumb),
+
+                                  // SizedBox(
+                                  //   height: 250,
+                                  //   width: 250,
+                                  //   child: ClipRRect(
+                                  //     borderRadius: BorderRadius.circular(25),
+                                  //     child: Image(
+                                  //       fit: BoxFit.fill,
+                                  //       image: NetworkImage(
+                                  //           randomMeal.strMealThumb),
+                                  //     ),
+                                  //   ),
+                                  // ),
                                   const SizedBox(height: 20),
                                   Text(
                                     randomMeal.strMeal,

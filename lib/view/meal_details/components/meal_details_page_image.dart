@@ -1,4 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+
+import '../../../constants/const_theme_data.dart';
 
 class MealDetailsPageImage extends StatelessWidget {
   const MealDetailsPageImage({
@@ -8,6 +12,19 @@ class MealDetailsPageImage extends StatelessWidget {
 
   final String strMealThumb;
 
+  Widget buildImage(String url) => ClipRRect(
+        borderRadius: const BorderRadius.only(
+        bottomLeft: Radius.circular(25),
+        bottomRight: Radius.circular(25),
+      ),
+        child: CachedNetworkImage(
+          key: UniqueKey(),
+          imageUrl: url,
+          placeholder: (context, url) =>
+              Container(color: appColors.appColor),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -15,9 +32,10 @@ class MealDetailsPageImage extends StatelessWidget {
         bottomLeft: Radius.circular(25),
         bottomRight: Radius.circular(25),
       ),
-      child: Image(
-        image: NetworkImage(strMealThumb),
-      ),
+      child: buildImage(strMealThumb),
+      // Image(
+      //   image: NetworkImage(strMealThumb),
+      // ),
     );
   }
 }

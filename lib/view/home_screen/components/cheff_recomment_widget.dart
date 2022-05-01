@@ -1,14 +1,42 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:meal_app/constants/const_texts.dart';
+import 'package:meal_app/constants/const_theme_data.dart';
 import 'package:meal_app/models/meal_model.dart';
 import 'package:meal_app/services/json_services.dart';
 import 'package:meal_app/view/meal_details/meal_details_page.dart';
 
+// ignore: must_be_immutable
 class CheffRecommentWidget extends StatelessWidget {
   CheffRecommentWidget({Key? key}) : super(key: key);
 
   JsonServices services = JsonServices();
   HomePageTexts texts = HomePageTexts();
+
+
+  Widget buildImage(String url) => ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: SizedBox(
+          height: 250,
+          width: 250,
+          child: CachedNetworkImage(
+            key: UniqueKey(),
+            imageUrl: url,
+            fit: BoxFit.fill,
+            placeholder: (context, url) =>
+                Container(color: appColors.appColor),
+          ),
+        ),
+      );
+
+
+    static final customCacheManager = CacheManager(
+      Config(
+        'customCacheKey',
+        stalePeriod: const Duration(days: 1)
+      )
+    );
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +47,7 @@ class CheffRecommentWidget extends StatelessWidget {
           var randomMeals = snapshot.data;
           return ListView.builder(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: randomMeals!.length,
             itemBuilder: (context, index) {
               var randomMeal = randomMeals[index];
@@ -42,19 +70,20 @@ class CheffRecommentWidget extends StatelessWidget {
                         );
                       })));
                     },
-                    child: SizedBox(
-                      height: 250,
-                      width: 250,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(25),
-                        child: Image(
-                          fit: BoxFit.fill,
-                          image: NetworkImage(
-                            randomMeal.strMealThumb,
-                          ),
-                        ),
-                      ),
-                    ),
+                    child: buildImage(randomMeal.strMealThumb)
+                    // SizedBox(
+                    //   height: 250,
+                    //   width: 250,
+                    //   child: ClipRRect(
+                    //     borderRadius: BorderRadius.circular(25),
+                    //     child: Image(
+                    //       fit: BoxFit.fill,
+                    //       image: NetworkImage(
+                    //         randomMeal.strMealThumb,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ),
                   const SizedBox(height: 20),
                   Text(

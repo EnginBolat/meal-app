@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState ();
+  State<HomeScreen> createState() => _HomeScreenState();
 
   AppColors appColors = AppColors();
 }

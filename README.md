@@ -25,12 +25,13 @@ Things To Do
 Dependencies
 
 ```bash
-  flutter_svg: https://pub.dev/packages/flutter_svg
   http: https://pub.dev/packages/http
   flutter_native_splash: https://pub.dev/packages/flutter_native_splash
+  cached_network_image: https://pub.dev/packages/cached_network_image
+  flutter_cache_manager: https://pub.dev/packages/flutter_cache_manager
+  youtube_player_flutter: https://pub.dev/packages/youtube_player_flutter
+
 ```
-
-
 
 ## Run Locally
 

@@ -30,6 +30,7 @@ Dependencies
   cached_network_image: https://pub.dev/packages/cached_network_image
   flutter_cache_manager: https://pub.dev/packages/flutter_cache_manager
   youtube_player_flutter: https://pub.dev/packages/youtube_player_flutter
+  page_transition: https://pub.dev/packages/page_transition
 
 ```
 

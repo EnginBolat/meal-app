@@ -5,6 +5,7 @@ import 'package:meal_app/constants/const_theme_data.dart';
 import 'package:meal_app/models/categories_model.dart';
 import 'package:meal_app/services/json_services.dart';
 import 'package:meal_app/view/meals_sorting_category/meals_sorting_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 // ignore: must_be_immutable
 class CategoriesWidget extends StatelessWidget {
@@ -64,11 +65,20 @@ class CategoriesWidget extends StatelessWidget {
                       child: GestureDetector(
                           onTap: () async {
                             initialization(context);
+                            // await Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: ((context) => MealsSortingPage(
+                            //         categoryName: category.strCategory)),
+                            //   ),
+                            // );
                             await Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: ((context) => MealsSortingPage(
-                                    categoryName: category.strCategory)),
+                              PageTransition(
+                                type: PageTransitionType.rightToLeft,
+                                child: MealsSortingPage(
+                                  categoryName: category.strCategory,
+                                ),
                               ),
                             );
                           },

@@ -3,7 +3,7 @@ import 'package:meal_app/models/meals_orderby_categories.dart';
 import 'package:meal_app/services/json_services.dart';
 import 'package:meal_app/view/meal_details/meal_details_page.dart';
 import 'package:meal_app/view/meals_sorting_category/components/list_of_meals.dart';
-
+import 'package:page_transition/page_transition.dart';
 
 // ignore: must_be_immutable
 class MealsSortingPage extends StatefulWidget {
@@ -35,12 +35,20 @@ class _MealsSortingPageState extends State<MealsSortingPage> {
                 var meal = mealList[index];
                 return GestureDetector(
                     onTap: () async {
+                      // await Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: ((context) => MealDetailsPage(
+                      //           mealId: int.parse(meal.idMeal),
+                      //         )),
+                      //   ),
                       await Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: ((context) => MealDetailsPage(
-                                mealId: int.parse(meal.idMeal),
-                              )),
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: MealDetailsPage(
+                            mealId: int.parse(meal.idMeal),
+                          ),
                         ),
                       );
                     },

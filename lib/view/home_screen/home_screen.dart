@@ -17,22 +17,32 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    _homeScreenWidgets();
+  }
+
+  Widget _homeScreenWidgets() {
+    return Column(
+      children: [
+        CategoriesWidget(),
+        const SizedBox(height: 20),
+        FoodWidget(),
+        CountriesWidget(),
+        const SizedBox(height: 50),
+        CheffRecommentWidget(),
+      ],
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8),
-          child: Column(
-            children: [
-              CategoriesWidget(),
-              const SizedBox(height: 20),
-              FoodWidget(),
-              CountriesWidget(),
-              const SizedBox(height: 50),
-              CheffRecommentWidget(),
-            ],
-          ),
+          child: _homeScreenWidgets(),
         ),
       ),
     );

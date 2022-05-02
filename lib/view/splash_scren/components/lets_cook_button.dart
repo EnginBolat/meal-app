@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meal_app/constants/const_texts.dart';
 
 import 'package:meal_app/view/home_screen/home_screen.dart';
+import 'package:page_transition/page_transition.dart';
 
 class LetsCookButton extends StatefulWidget {
   const LetsCookButton({Key? key}) : super(key: key);
@@ -22,9 +23,10 @@ class _LetsCookButtonState extends State<LetsCookButton> {
         textDirection: TextDirection.rtl,
         child: ElevatedButton.icon(
           onPressed: () async {
-            await Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => HomeScreen(),
-              ));
+            // await Navigator.of(context PageTransition(type: PageTransitionType.fade, child: DetailScreen())).pushReplacement(MaterialPageRoute(
+            //     builder: (context) => HomeScreen(),
+            //   ));
+              await Navigator.pushReplacement(context, PageTransition(type: PageTransitionType.rightToLeft, child: HomeScreen()));
           },
           label: Text(
             texts.buttonText,

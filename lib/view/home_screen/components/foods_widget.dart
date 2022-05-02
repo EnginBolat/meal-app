@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
@@ -5,6 +7,7 @@ import 'package:meal_app/constants/const_colors.dart';
 import 'package:meal_app/models/meal_model.dart';
 import 'package:meal_app/services/json_services.dart';
 import 'package:meal_app/view/meal_details/meal_details_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 // ignore: must_be_immutable
 class FoodWidget extends StatelessWidget {
@@ -24,19 +27,13 @@ class FoodWidget extends StatelessWidget {
             height: 50,
             width: 80,
             fit: BoxFit.fill,
-            placeholder: (context, url) =>
-                Container(color: appColors.appColor),
+            placeholder: (context, url) => Container(color: appColors.appColor),
           ),
         ),
       );
 
-
-    static final customCacheManager = CacheManager(
-      Config(
-        'customCacheKey',
-        stalePeriod: const Duration(days: 5)
-      )
-    );
+  static final customCacheManager = CacheManager(
+      Config('customCacheKey', stalePeriod: const Duration(days: 5)));
 
   @override
   Widget build(BuildContext context) {
@@ -62,12 +59,19 @@ class FoodWidget extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () async {
-                              await Navigator.push(context,
-                                  MaterialPageRoute(builder: ((context) {
-                                return MealDetailsPage(
-                                  mealId: int.parse(randomMeal.idMeal),
-                                );
-                              })));
+                              // await Navigator.push(context,
+                              //     MaterialPageRoute(builder: ((context) {
+                              //   return MealDetailsPage(
+                              //     mealId: int.parse(randomMeal.idMeal),
+                              //   );
+                              // })));
+                              await Navigator.push(
+                                  context,
+                                  PageTransition(
+                                      type: PageTransitionType.rightToLeft,
+                                      child: MealDetailsPage(
+                                        mealId: int.parse(randomMeal.idMeal),
+                                      )));
                             },
                             child: Container(
                               decoration: BoxDecoration(
@@ -105,12 +109,19 @@ class FoodWidget extends StatelessWidget {
                           const SizedBox(width: 30),
                           GestureDetector(
                             onTap: () async {
-                              await Navigator.push(context,
-                                  MaterialPageRoute(builder: ((context) {
-                                return MealDetailsPage(
-                                  mealId: int.parse(randomMeal.idMeal),
-                                );
-                              })));
+                              // await Navigator.push(context,
+                              //     MaterialPageRoute(builder: ((context) {
+                              //   return MealDetailsPage(
+                              //     mealId: int.parse(randomMeal.idMeal),
+                              //   );
+                              // })));
+                              await Navigator.push(
+                                  context,
+                                  PageTransition(
+                                      type: PageTransitionType.rightToLeft,
+                                      child: MealDetailsPage(
+                                        mealId: int.parse(randomMeal.idMeal),
+                                      )));
                             },
                             child: Container(
                               decoration: BoxDecoration(
@@ -137,7 +148,7 @@ class FoodWidget extends StatelessWidget {
                                   // ),
                                   const SizedBox(height: 20),
                                   Text(
-                                    randomMeal.strMeal,
+                                    randomMeal.strArea,
                                     style:
                                         Theme.of(context).textTheme.subtitle2,
                                     textAlign: TextAlign.center,

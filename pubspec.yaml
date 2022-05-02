@@ -34,6 +34,8 @@ dependencies:
   http: ^0.13.4
   youtube_player_flutter: ^8.0.0
 
+  page_transition: ^2.0.5
+
 flutter_native_splash:
   background_image: assets/images/SplashScreen.png
 

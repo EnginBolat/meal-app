@@ -6,6 +6,7 @@ import 'package:meal_app/constants/const_theme_data.dart';
 import 'package:meal_app/models/meal_model.dart';
 import 'package:meal_app/services/json_services.dart';
 import 'package:meal_app/view/meal_details/meal_details_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 // ignore: must_be_immutable
 class CheffRecommentWidget extends StatelessWidget {
@@ -13,7 +14,6 @@ class CheffRecommentWidget extends StatelessWidget {
 
   JsonServices services = JsonServices();
   HomePageTexts texts = HomePageTexts();
-
 
   Widget buildImage(String url) => ClipRRect(
         borderRadius: BorderRadius.circular(25),
@@ -24,19 +24,13 @@ class CheffRecommentWidget extends StatelessWidget {
             key: UniqueKey(),
             imageUrl: url,
             fit: BoxFit.fill,
-            placeholder: (context, url) =>
-                Container(color: appColors.appColor),
+            placeholder: (context, url) => Container(color: appColors.appColor),
           ),
         ),
       );
 
-
-    static final customCacheManager = CacheManager(
-      Config(
-        'customCacheKey',
-        stalePeriod: const Duration(days: 1)
-      )
-    );
+  static final customCacheManager = CacheManager(
+      Config('customCacheKey', stalePeriod: const Duration(days: 1)));
 
   @override
   Widget build(BuildContext context) {
@@ -62,29 +56,38 @@ class CheffRecommentWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   GestureDetector(
-                    onTap: () async {
-                      await Navigator.push(context,
-                          MaterialPageRoute(builder: ((context) {
-                        return MealDetailsPage(
-                          mealId: int.parse(randomMeal.idMeal),
+                      onTap: () async {
+                        // await Navigator.push(context,
+                        //     MaterialPageRoute(builder: ((context) {
+                        //   return MealDetailsPage(
+                        //     mealId: int.parse(randomMeal.idMeal),
+                        //   );
+                        // })));
+                        await Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: MealDetailsPage(
+                              mealId: int.parse(randomMeal.idMeal),
+                            ),
+                          ),
                         );
-                      })));
-                    },
-                    child: buildImage(randomMeal.strMealThumb)
-                    // SizedBox(
-                    //   height: 250,
-                    //   width: 250,
-                    //   child: ClipRRect(
-                    //     borderRadius: BorderRadius.circular(25),
-                    //     child: Image(
-                    //       fit: BoxFit.fill,
-                    //       image: NetworkImage(
-                    //         randomMeal.strMealThumb,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                  ),
+                      },
+                      child: buildImage(randomMeal.strMealThumb)
+                      // SizedBox(
+                      //   height: 250,
+                      //   width: 250,
+                      //   child: ClipRRect(
+                      //     borderRadius: BorderRadius.circular(25),
+                      //     child: Image(
+                      //       fit: BoxFit.fill,
+                      //       image: NetworkImage(
+                      //         randomMeal.strMealThumb,
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                      ),
                   const SizedBox(height: 20),
                   Text(
                     randomMeal.strMeal,

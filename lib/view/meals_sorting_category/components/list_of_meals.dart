@@ -54,8 +54,8 @@ class ListOfMeals extends StatelessWidget {
                 ),
                 Center(
                   child: Text(
-                    strMeal.length > 25
-                        ? strMeal.substring(0, 25) + "..."
+                    strMeal.length > 20
+                        ? strMeal.substring(0, 19) + "..."
                         : strMeal,
                     style: Theme.of(context).textTheme.headline6,
                   ),

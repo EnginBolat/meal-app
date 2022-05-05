@@ -16,4 +16,5 @@ class MealDetailsPageTexts {
   String country = "Country: ";
   String category = "Category: ";
   String tutorialVideo = "Tutorial Video";
+  String ingredientandMeasure="INGREDIENT AND MEASURE";
 }

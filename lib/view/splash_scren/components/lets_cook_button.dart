@@ -23,10 +23,12 @@ class _LetsCookButtonState extends State<LetsCookButton> {
         textDirection: TextDirection.rtl,
         child: ElevatedButton.icon(
           onPressed: () async {
-            // await Navigator.of(context PageTransition(type: PageTransitionType.fade, child: DetailScreen())).pushReplacement(MaterialPageRoute(
-            //     builder: (context) => HomeScreen(),
-            //   ));
-              await Navigator.pushReplacement(context, PageTransition(type: PageTransitionType.rightToLeft, child: HomeScreen()));
+            await Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ));
+            // await Navigator.pushReplacement(context, PageTransition(type: PageTransitionType.rightToLeft, child: HomeScreen()));
           },
           label: Text(
             texts.buttonText,

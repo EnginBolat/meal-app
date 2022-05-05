@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/constants/const_texts.dart';
+import 'package:meal_app/constants/const_theme_data.dart';
 import 'package:meal_app/models/meal_model.dart';
 import 'package:meal_app/services/json_services.dart';
+import 'package:meal_app/view/meal_details/components/ingredient_and_measure.dart';
 import 'package:meal_app/view/meal_details/components/instructions.dart';
 import 'package:meal_app/view/meal_details/components/meal_details_page_image.dart';
 import 'package:meal_app/view/meal_details/components/meal_details_widget.dart';
+import 'package:meal_app/view/meal_details/components/measure_text.dart';
 import 'package:meal_app/view/meal_details/components/video_player.dart';
+import 'package:meal_app/view/splash_scren/components/desc_text.dart';
 
 // ignore: must_be_immutable
 class DetailsPageWidgetTree extends StatelessWidget {
@@ -12,6 +17,7 @@ class DetailsPageWidgetTree extends StatelessWidget {
 
   int mealId;
   JsonServices services = JsonServices();
+  MealDetailsPageTexts texts = MealDetailsPageTexts();
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +41,7 @@ class DetailsPageWidgetTree extends StatelessWidget {
                     strArea: mealDetailVar.strArea,
                     strCategory: mealDetailVar.strCategory,
                   ),
+                  IngredientAndMeasure(texts: texts, mealDetailVar: mealDetailVar),
                   Instructions(
                     strInstructions: mealDetailVar.strInstructions,
                   ),
@@ -52,3 +59,5 @@ class DetailsPageWidgetTree extends StatelessWidget {
     );
   }
 }
+
+

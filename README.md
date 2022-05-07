@@ -18,7 +18,7 @@ Things To Do
   ✅ Details Screen
   ✅ API Integration
   ✅ Performance Upgrades
-  ❌ Ingredient And Measure Area
+  ✅ Ingredient And Measure Area (Almost)
   ❌ Search Bar By Meals Name
 ```
 

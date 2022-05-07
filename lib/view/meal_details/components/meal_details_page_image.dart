@@ -26,15 +26,17 @@ class MealDetailsPageImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: const BorderRadius.only(
-        bottomLeft: Radius.circular(25),
-        bottomRight: Radius.circular(25),
+    return Center(
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(25),
+          bottomRight: Radius.circular(25),
+        ),
+        child: buildImage(strMealThumb),
+        // Image(
+        //   image: NetworkImage(strMealThumb),
+        // ),
       ),
-      child: buildImage(strMealThumb),
-      // Image(
-      //   image: NetworkImage(strMealThumb),
-      // ),
     );
   }
 }

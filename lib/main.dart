@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meal_app/constants/const_theme_data.dart';
@@ -20,14 +22,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'MealApp',
-      theme: customThemeData,
-      home: const MyHomePage(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'MealApp',
+        theme: customThemeData,
+        home: const MyHomePage(),
+        scrollBehavior: MaterialScrollBehavior().copyWith(
+          dragDevices: {
+            PointerDeviceKind.mouse,
+            PointerDeviceKind.touch,
+          },
+        ));
   }
 }
-
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -35,7 +41,7 @@ class MyHomePage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState(); 
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {

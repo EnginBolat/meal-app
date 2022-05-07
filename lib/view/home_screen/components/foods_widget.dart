@@ -146,7 +146,7 @@ class FoodWidget extends StatelessWidget {
                                   // ),
                                   const SizedBox(height: 20),
                                   Text(
-                                    randomMeal.strArea,
+                                    randomMeal.strMeal,
                                     style:
                                         Theme.of(context).textTheme.subtitle2,
                                     textAlign: TextAlign.center,

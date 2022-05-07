@@ -19,7 +19,6 @@ Things To Do
   ✅ API Integration
   ✅ Performance Upgrades
   ✅ Ingredient And Measure Area
-  ❌ Search Bar By Meals Name
 ```
 
 Dependencies

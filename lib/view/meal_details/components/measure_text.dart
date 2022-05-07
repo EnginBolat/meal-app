@@ -14,29 +14,27 @@ class Ingredient_mesaure_text extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        if (strIngredient == "" ||
-            strIngredient == " " ||
-            strIngredient == null)
-          Container()
-        else
+        if (strIngredient != "" &&
+            strIngredient != " " &&
+            strIngredient != null)
           Text(
             strIngredient!,
             style: Theme.of(context)
                 .textTheme
                 .headline6!
-                .copyWith(color: Colors.white),
+                .copyWith(color: Colors.white, fontSize: 16,height: 2),
           ),
-        if (strMeasure == "" || strMeasure == " " || strMeasure == null)
-          Container()
-        else
+        if (strMeasure != "" && strMeasure != " " && strMeasure != null)
           Text(
             strMeasure!,
             style: Theme.of(context)
                 .textTheme
                 .headline6!
-                .copyWith(color: Colors.white),
+                .copyWith(color: Colors.white, fontSize: 16,height: 2),
           ),
       ],
     );
   }
 }
+
+              // const SizedBox(height: 15),

@@ -38,7 +38,7 @@ class DetailsPageWidgetTree extends StatelessWidget {
                     strArea: mealDetailVar.strArea,
                     strCategory: mealDetailVar.strCategory,
                   ),
-                  IngredientAndMeasure(texts: texts, mealDetailVar: mealDetailVar),
+                  IngredientAndMeasure(mealDetailVar:mealDetailVar),
                   Instructions(
                     strInstructions: mealDetailVar.strInstructions,
                   ),

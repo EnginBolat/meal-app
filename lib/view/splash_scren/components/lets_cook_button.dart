@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:meal_app/constants/const_texts.dart';
 
 import 'package:meal_app/view/home_screen/home_screen.dart';
-import 'package:page_transition/page_transition.dart';
 
 class LetsCookButton extends StatefulWidget {
   const LetsCookButton({Key? key}) : super(key: key);

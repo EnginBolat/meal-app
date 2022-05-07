@@ -14,7 +14,9 @@ class Ingredient_mesaure_text extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        if (strIngredient == "" || strIngredient == null)
+        if (strIngredient == "" ||
+            strIngredient == " " ||
+            strIngredient == null)
           Container()
         else
           Text(
@@ -24,7 +26,7 @@ class Ingredient_mesaure_text extends StatelessWidget {
                 .headline6!
                 .copyWith(color: Colors.white),
           ),
-        if (strMeasure == "" || strMeasure == null)
+        if (strMeasure == "" || strMeasure == " " || strMeasure == null)
           Container()
         else
           Text(

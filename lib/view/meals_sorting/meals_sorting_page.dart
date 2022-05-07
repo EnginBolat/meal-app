@@ -5,6 +5,7 @@ import 'package:meal_app/view/meal_details/meal_details_page.dart';
 import 'package:meal_app/view/meals_sorting/components/list_of_countries_meal.dart';
 import 'package:page_transition/page_transition.dart';
 
+// ignore: must_be_immutable
 class MealSortingByCountry extends StatelessWidget {
   MealSortingByCountry({Key? key, required this.countryName}) : super(key: key);
 
